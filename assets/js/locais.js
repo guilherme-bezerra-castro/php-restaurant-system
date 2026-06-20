@@ -1,0 +1,15 @@
+document.addEventListener('DOMContentLoaded', () => {
+  const toggleBtn = document.getElementById('toggleSidebar');
+  if (toggleBtn) {
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('sidebar-collapsed');
+    });
+  }
+
+  const loginBtn = document.getElementById('loginRedirectButton');
+  if (loginBtn) {
+    loginBtn.addEventListener('click', () => {
+      window.location.href = '/includes/login.php';
+    });
+  }
+});
