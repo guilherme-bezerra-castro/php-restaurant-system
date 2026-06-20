@@ -113,15 +113,13 @@ As melhorias realizadas incluíram:
 - Separação de responsabilidades
 - Refatoração de funções e estrutura geral
 
+Futuras melhorias incluirão:
+- Melhoria do design front-end da aplicação
+- Consumo de APIs externas em novas features para as páginas de clientes
+
 ## Observações do projeto
 
 * Projeto desenvolvido como primeiro sistema fullstack
 * Front-end ainda em processo de evolução e refatoração
 * Algumas funcionalidades de UI (como busca na navbar) ainda não estão implementadas
 * Estrutura passou por melhorias seguindo princípios básicos de Clean Code
-
----
-
-## Autor
-
-Guilherme Bezerra de Castro
