@@ -16,3 +16,4 @@ function criarConexaoBanco(): mysqli {
 
     return $conn;
 }
+?>

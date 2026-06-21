@@ -1,8 +1,6 @@
 <?php
-// Função de escape para segurança
-function sanitize($str) {
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
+
+require_once __DIR__ . '/helpers.php';
 
 $conteudo = require __DIR__ . '/data/conteudo_home.php';
 $carousel = $conteudo['carousel'];

@@ -1,15 +1,14 @@
 <?php
 
+require_once __DIR__ . '/helpers.php';
+
 $conteudo = require __DIR__ . '/data/conteudo_locais.php';
 $locais = $conteudo['locais'];
 $footer_paginas = $conteudo['footer_paginas'];
 $footer_contato = $conteudo['footer_contato'];
 
-
-function sanitize($str) {
-  return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
 ?>
+
 <!DOCTYPE html> 
 <html lang="pt-BR">
 <head>
