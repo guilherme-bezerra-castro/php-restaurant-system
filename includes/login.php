@@ -61,7 +61,7 @@ $conn->close();
         <img src="../assets/img/oven.svg" alt="Logo Gostinho Natural" class="login-logo">
         <h2>Login de Administrador</h2>
         <form method="POST">
-            <input type="hidden" name="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
+            <input type="hidden" name="csfr_token" value="<?= htmlspecialchars($_SESSION['csrf_token'], ENT_QUOTES, 'UTF-8') ?>">
             <input type="text" name="nome_usuario" placeholder="Usuário" required><br>
             <input type="password" name="senha" placeholder="Senha" required><br>
             <button type="submit">Entrar</button>
