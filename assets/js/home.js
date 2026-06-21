@@ -29,11 +29,14 @@ document.addEventListener('DOMContentLoaded', () => {
       }, 5000);
     }
 
-    inicializarIndicadores(showSlide);
+    function inicializarIndicadores(showSlide) {
+      document.querySelectorAll('.carousel-indicators button')
+        .foreach((btn, i) => btn.addEventListener('click', () => showSlide(i)))
+    }
+
     iniciarAvancaAutomatico();
   }
 
   inicializarCarousel();
-  inicializarToggleSidebar();
-  inicializarBotaoLogin();
+  
 });
