@@ -49,7 +49,7 @@ if(isset($_POST['submit_faq'])){
     $sucesso = $stmt->execute();
     $stmt->close();
 
-    return $sucesso ? "FAQ inserido com sucesso." : "Erro ao inserir FAQ.";
+    $mensagem = $sucesso ? "FAQ inserido com sucesso." : "Erro ao inserir FAQ.";
 }
 
 if(isset($_POST['submit_footer'])){
@@ -64,7 +64,7 @@ if(isset($_POST['submit_footer'])){
     $sucesso = $stmt->execute();
     $stmt->close();
 
-    return $sucesso ? "Footer inserido com sucesso." : "Erro ao inserir footer.";
+    $mensagem = $sucesso ? "Footer inserido com sucesso." : "Erro ao inserir footer.";
 }
 ?>
 
