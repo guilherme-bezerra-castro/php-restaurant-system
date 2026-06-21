@@ -21,9 +21,13 @@ $conn = criarConexaoBanco();
 
 function inserirPrato(mysqli $conn): string {
     validarTokenCSRF();
-    $nome     = $_POST['nome'];
-    $descricao = $_POST['descricao'];
-    $preco    = $_POST['preco'];
+    $nome = trim($_POST['nome'] ?? '');
+    $descricao = trim($_POST['descricao'] ?? '');
+    $preco = filter_input(INPUT_POST, 'preco', FILTER_VALIDATE_FLOAT);
+
+    if ($preco === false || $preco === null) {
+        return "Preço inválido.";
+    }
 
     $stmt = $conn->prepare("INSERT INTO pratos (nome, descricao, preco) VALUES (?, ?, ?)");
     $stmt->bind_param("ssd", $nome, $descricao, $preco);
