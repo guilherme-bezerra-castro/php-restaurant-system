@@ -1,9 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const imagens = [
-    '../assets/img/img1.jpg',
-    '../assets/img/img2.jpg',
-    '../assets/img/img3.jpg'
-  ];
+  const totalSlides = document.querySelectorAll('carousel-item').length;
 
   const inner = document.querySelector('.carousel-inner');
   const indicators = document.querySelector('.carousel-indicators');
@@ -20,8 +16,8 @@ document.addEventListener('DOMContentLoaded', () => {
         .forEach((btn, i) => btn.classList.toggle('active', i === n));
     }
 
-    function iniciarAvancaAutomatico() {
-      setInterval(() => {
+    function inicializarAvancaAutomatico() {
+      const intervalId = setInterval(() => {
         indiceAtual = (indiceAtual + 1) % imagens.length;
 
         showSlide(indiceAtual);
@@ -31,10 +27,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function inicializarIndicadores(showSlide) {
       document.querySelectorAll('.carousel-indicators button')
-        .foreach((btn, i) => btn.addEventListener('click', () => showSlide(i)))
+        .forEach((btn, i) => btn.addEventListener('click', () => showSlide(i)))
     }
 
-    iniciarAvancaAutomatico();
+    inicializarAvancaAutomatico();
+
+    inicializarIndicadores(showSlide);
   }
 
   inicializarCarousel();
