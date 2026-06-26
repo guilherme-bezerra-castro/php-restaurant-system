@@ -99,10 +99,6 @@ button:hover {
     margin-bottom: 15px;
 }
 
-.editor {
-    min-height: 150px;
-}
-
 @media (max-width: 767.98px) {
   .admin-header {
     flex-direction: column;
