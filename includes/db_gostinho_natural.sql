@@ -9,14 +9,6 @@ CREATE TABLE carousel (
     ativo TINYINT(1) DEFAULT 1
 );
 
-CREATE TABLE pratos (
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    nome VARCHAR(100) NOT NULL,
-    descricao TEXT NOT NULL,
-    preco DECIMAL(10,2) NOT NULL,
-    ativo TINYINT(1) DEFAULT 1
-);
-
 CREATE TABLE pratos_precos (
     id INT AUTO_INCREMENT PRIMARY KEY,
     prato_id INT NOT NULL,
