@@ -70,34 +70,60 @@ $footer_contato = $conteudo['footer_contato'];
         <?php endforeach; ?>
       </div>
     </section>
-    
+
   </main>
 
 
   <footer class="footer">
-    <div class="container-fluid">
-      <div class="footer-content">
-        <div class="footer-left">
-          <h6>Páginas</h6>
-          <ul class="list-unstyled">
-            <li><a href="/includes/index.php"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="/includes/locais.php"><i class="fas fa-map-marker-alt"></i> Locais</a></li>
-          </ul>
-        </div>
-        <div class="footer-right">
-          <h6>Contato</h6>
-          <ul class="list-unstyled">
-            <li><i class="fab fa-instagram"></i> @gostinhonatural</li>
-            <li><i class="fab fa-whatsapp"></i> (71) 90000-0000</li>
-            <li><a href="mailto:contato@gostinhonatural.com"><i class="fas fa-envelope"></i> gostinhonatural@email.com</a></li>
-          </ul>
+    <div class="footer-top">
+      <div class="footer-brand">
+        <p class="footer-brand-name">Gostinho<span>Natural</span></p>
+        <p class="footer-tagline">
+          Mais do que comida — é cuidado em cada prato,
+          respeito à tradição e sabor que fica na memória.
+        </p>
+        <div class="footer-social">
+          <a href="#" class="social-btn" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="#" class="social-btn" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+          <a href="#" class="social-btn" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
         </div>
       </div>
-      <div class="footer-bottom">
-        <strong>Gostinho Natural</strong> &copy; 2025
+      <div>
+        <p class="footer-col-title">Páginas</p>
+        <ul class="footer-links">
+          <?php foreach ($footer_paginas as $pagina): ?>
+            <li><a href="#"><?= sanitize($pagina['conteudo']) ?></a></li>
+          <?php endforeach; ?>
+          <li><a href="/includes/login.php">Área Admin</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer-col-title">Contato</p>
+        <?php foreach ($footer_contato as $contato): ?>
+          <div class="footer-contact-item">
+            <i class="fas fa-circle-dot footer-contact-icon"></i>
+            <?= sanitize($contato['conteudo']) ?>
+          </div>
+        <?php endforeach; ?>
+        <div class="footer-contact-item">
+          <i class="fab fa-instagram footer-contact-icon"></i>
+          <a href="#">@gostinhonatural</a>
+        </div>
+        <div class="footer-contact-item">
+          <i class="fab fa-whatsapp footer-contact-icon"></i>
+          <a href="#">(71) 90000-0000</a>
+        </div>
       </div>
     </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">
+        <strong>Gostinho Natural</strong> &copy; 2025 — Todos os direitos reservados.
+      </p>
+      <span class="footer-oliva-pill">Sabor natural desde 2020</span>
+    </div>
   </footer>
+
+  <script src="../assets/js/home.js"></script>
 
 </body>
 </html>
