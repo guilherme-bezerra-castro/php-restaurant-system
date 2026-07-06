@@ -35,22 +35,23 @@
   position: absolute;
   top: 0;
   right: 0;
-  width: 45%;
+  width: 42%;
   height: 100%;
-  background: linear-gradient(135deg, transparent 40%, rgba(255,107,0,0.08) 100%);
+  background-size: cover;
+  background-position: center;
   clip-path: polygon(20% 0, 100% 0, 100% 100%, 0 100%);
 }
 
-.locais-hero-bg::after {
+.locais-hero-bg::before {
   content: '';
   position: absolute;
-  right: 4rem;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 180px;
-  height: 180px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255,107,0,0.15);
+  inset: 0;
+  background: linear-gradient(to right, var(--fundo-escuro) 0%, transparent 40%);
+  z-index: 1;
+}
+
+.locais-hero-bg::after {
+  display: none;
 }
 
 .locais-section {

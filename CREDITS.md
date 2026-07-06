@@ -6,4 +6,5 @@ Os links das imagens utilizadas estão disponíveis abaixo:
 * img1.jpg: https://unsplash.com/pt-br/fotografias/uma-tigela-de-sopa-com-uma-colher-IGsSbLoTkro
 * img2.jpg: https://unsplash.com/pt-br/fotografias/pao-integral-na-bandeja-de-madeira-marrom-N6BTNbaKZMo
 * img3.jpg: https://unsplash.com/pt-br/fotografias/um-prato-branco-coberto-com-um-sanduiche-ao-lado-de-uma-xicara-de-cafe-koK_vmMKhfU
+* img4.jpg: https://unsplash.com/pt-br/fotografias/bolas-de-pastelaria-no-prato-mOedSrS6qS0
 * logo.png: https://phosphoricons.com
