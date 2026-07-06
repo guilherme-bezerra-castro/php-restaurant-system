@@ -1,38 +1,70 @@
 document.addEventListener('DOMContentLoaded', () => {
+  
   const totalSlides = document.querySelectorAll('carousel-item').length;
 
-  const inner = document.querySelector('.carousel-inner');
-  const indicators = document.querySelector('.carousel-indicators');
-
   function inicializarCarousel() {
-    let indiceAtual = 0;
+    const inner = document.querySelector('.carousel-inner');
+    const indicators = document.querySelectorAll('.carousel-indicators button');
+    const btnPrev = document.querySelector('.carousel-btn-prev');
+    const btnNext = document.querySelector('.carousel-btn-next');
 
-    function showSlide(n) {
-      indiceAtual = n;
+    if (!inner) return;
 
-      const offset = -n * 100;
-      inner.style.transform = `translateX(${offset}%)`;
-      document.querySelectorAll('.carousel-indicators button')
-        .forEach((btn, i) => btn.classList.toggle('active', i === n));
+    const items = inner.querySelectorAll('.carousel-item');
+    if (items.length === 0) return;
+
+    let atual = 0;
+    let timer = null;
+    const total = items.length;
+
+    function ir(n) {
+      atual = (n + total) % total;
+      inner.style.transform = `translateX(-${atual * 100}%)`;
+      indicators.forEach((btn, i) => btn.classList.toggle('active', i === atual));
     }
 
-    function inicializarAvancaAutomatico() {
-      const intervalId = setInterval(() => {
-        indiceAtual = (indiceAtual + 1) % imagens.length;
-
-        showSlide(indiceAtual);
-
-      }, 5000);
+    function avancar() { 
+      ir(atual + 1); 
     }
 
-    function inicializarIndicadores(showSlide) {
-      document.querySelectorAll('.carousel-indicators button')
-        .forEach((btn, i) => btn.addEventListener('click', () => showSlide(i)))
+    function recuar()  { 
+      ir(atual - 1); 
     }
 
-    inicializarAvancaAutomatico();
+    function iniciarAuto() {
+      pararAuto();
+      timer = setInterval(avancar, 5000);
+    }
 
-    inicializarIndicadores(showSlide);
+    function pararAuto() {
+      if (timer) { 
+        clearInterval(timer); timer = null; 
+      }
+    }
+
+    if (btnNext) btnNext.addEventListener('click', () => { avancar(); iniciarAuto(); });
+    if (btnPrev) btnPrev.addEventListener('click', () => { recuar(); iniciarAuto(); });
+
+    indicators.forEach((btn, i) => {
+      btn.addEventListener('click', () => { ir(i); iniciarAuto(); });
+    });
+
+    const wrapper = document.querySelector('.carousel-section');
+    if (wrapper) {
+      wrapper.addEventListener('mouseenter', pararAuto);
+      wrapper.addEventListener('mouseleave', iniciarAuto);
+    }
+
+    let touchStartX = 0;
+    inner.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; },
+       { passive: true });
+    inner.addEventListener('touchend', e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 50) { dx < 0 ? avancar() : recuar(); iniciarAuto(); }
+    });
+
+    ir(0);
+    iniciarAuto();
   }
 
   inicializarCarousel();
