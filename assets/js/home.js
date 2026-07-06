@@ -67,6 +67,79 @@ document.addEventListener('DOMContentLoaded', () => {
     iniciarAuto();
   }
 
+  function inicializarSidebar() {
+    const btnToggle = document.getElementById('toggleSidebar');
+    const btnClose  = document.getElementById('closeSidebar');
+    const overlay   = document.getElementById('sidebarOverlay');
+
+    function abrir()  { document.body.classList.add('sidebar-open'); }
+    function fechar() { document.body.classList.remove('sidebar-open'); }
+
+    if (btnToggle) btnToggle.addEventListener('click', abrir);
+    if (btnClose)  btnClose.addEventListener('click', fechar);
+    if (overlay)   overlay.addEventListener('click', fechar);
+
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') fechar();
+    });
+  }
+
+  function inicializarBotaoLogin() {
+    const loginBtn = document.getElementById('loginRedirectButton');
+    if (loginBtn) {
+      loginBtn.addEventListener('click', () => {
+        window.location.href = '/includes/login.php';
+      });
+    }
+
+    const sidebarLogin = document.getElementById('sidebarLoginButton');
+    if (sidebarLogin) {
+      sidebarLogin.addEventListener('click', e => {
+        e.preventDefault();
+        window.location.href = '/includes/login.php';
+      });
+    }
+  }
+
+  function inicializarReveal() {
+    const elementos = document.querySelectorAll('.reveal');
+    if (!elementos.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    elementos.forEach(el => obs.observe(el));
+  }
+
+  function inicializarNavAtivo() {
+    const navLinks = document.querySelectorAll('.nav-link');
+    const sections = document.querySelectorAll('section[id]');
+    if (!sections.length) return;
+
+    const obs = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href') || '';
+            link.classList.toggle('active', href.includes(entry.target.id));
+          });
+        }
+      });
+    }, { rootMargin: '-40% 0px -55% 0px' });
+
+    sections.forEach(s => obs.observe(s));
+  }
+
   inicializarCarousel();
+  inicializarSidebar();
+  inicializarBotaoLogin();
+  inicializarReveal();
+  inicializarNavAtivo();
   
 });
