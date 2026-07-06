@@ -1,7 +1,5 @@
 <?php
-function sanitize($str) {
-    return htmlspecialchars($str, ENT_QUOTES, 'UTF-8');
-}
+require_once __DIR__ . '/helpers.php';
 
 $conteudo       = require __DIR__ . '/data/conteudo_home.php';
 $carousel       = $conteudo['carousel'];
@@ -10,6 +8,7 @@ $faq            = $conteudo['faq'];
 $footer_paginas = $conteudo['footer_paginas'];
 $footer_contato = $conteudo['footer_contato'];
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
