@@ -76,9 +76,9 @@ $footer_contato = $conteudo['footer_contato'];
         <div class="carousel-inner">
           <?php
           $legendas = [
-            ['titulo' => 'Sabor autêntico',        'sub' => 'Pratos que contam histórias'],
-            ['titulo' => 'Receitas da tradição',    'sub' => 'Do campo à sua mesa'],
-            ['titulo' => 'Ingredientes frescos',    'sub' => 'Natureza em cada detalhe'],
+            ['titulo' => 'Sabor autêntico', 'sub' => 'Pratos que contam histórias'],
+            ['titulo' => 'Receitas da tradição', 'sub' => 'Do campo à sua mesa'],
+            ['titulo' => 'Ingredientes frescos', 'sub' => 'Natureza em cada detalhe'],
           ];
           foreach ($carousel as $i => $img):
             $l = $legendas[$i] ?? $legendas[0];
@@ -114,7 +114,7 @@ $footer_contato = $conteudo['footer_contato'];
           <p class="section-eyebrow">Cardápio</p>
           <h2 class="section-title">Nossos Pratos Típicos</h2>
         </div>
-        <a href="#" class="section-link">
+        <a href="/includes/cardapio.php" class="section-link">
           Ver cardápio completo <i class="fas fa-arrow-right"></i>
         </a>
       </div>
