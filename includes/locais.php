@@ -34,7 +34,7 @@ $footer_contato = $conteudo['footer_contato'];
         <h1 class="locais-hero-title">Nossas<br><span>Filiais</span></h1>
         <p class="locais-hero-desc">Endereços, contatos e e-mails das nossas unidades. Escolha a mais perto de você.</p>
       </div>
-      <div class="locais-hero-bg" style="background-image: url('../assets/img/img2.jpg');"></div>
+      <div class="locais-hero-bg" style="background-image: url('../assets/img/bobo_camarao.jpg');"></div>
     </section>
 
     <section class="locais-section">
