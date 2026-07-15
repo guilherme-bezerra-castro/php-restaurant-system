@@ -13,56 +13,49 @@ $cardapio = [
             'nome' => 'Moqueca de Peixe',
             'desc' => 'Peixe fresco cozido no leite de coco, azeite de dendê, pimentão e coentro. Acompanha arroz e pirão.',
             'preco' => 52.90,
-            'img' => '../assets/img/img1.jpg',
+            'img' => '../assets/img/moqueca.jpg',
             'destaque' => true,
         ],
         [
             'nome' => 'Feijoada Baiana',
             'desc' => 'Feijão preto com carnes selecionadas, couve refogada, farofa e laranja. Tradição que aquece.',
             'preco' => 44.90,
-            'img' => '../assets/img/img2.jpg',
+            'img' => '../assets/img/feijoada.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Vatapá',
             'desc' => 'Creme encorpado de pão, amendoim, camarão seco, leite de coco e azeite de dendê.',
             'preco' => 38.50,
-            'img' => '../assets/img/img3.jpg',
+            'img' => '../assets/img/vatapa.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Caruru',
             'desc' => 'Quiabo refogado com camarão seco, amendoim, castanha de caju e azeite de dendê.',
             'preco' => 36.00,
-            'img' => '../assets/img/img1.jpg',
+            'img' => '../assets/img/caruru.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Acarajé',
             'desc' => 'Bolinho de feijão-fradinho frito no dendê, recheado com vatapá, caruru e camarão.',
             'preco' => 22.00,
-            'img' => '../assets/img/img2.jpg',
+            'img' => '../assets/img/acaraje.jpg',
             'destaque' => true,
         ],
         [
             'nome' => 'Bobó de Camarão',
             'desc' => 'Camarão fresco em creme de mandioca com leite de coco e azeite de dendê. Servido com arroz.',
             'preco' => 58.00,
-            'img' => '../assets/img/img3.jpg',
+            'img' => '../assets/img/bobo_camarao.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Galinha à Caipira',
             'desc' => 'Frango caipira ensopado com temperos baianos, servido com pirão e arroz branco.',
             'preco' => 46.00,
-            'img' => '../assets/img/img1.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Xinxim de Galinha',
-            'desc' => 'Pedaços de frango cozidos com camarão seco, amendoim, azeite de dendê e gengibre.',
-            'preco' => 48.90,
-            'img' => '../assets/img/img2.jpg',
+            'img' => '../assets/img/galinha_caipira.jpg',
             'destaque' => false,
         ],
     ],
@@ -71,28 +64,28 @@ $cardapio = [
             'nome' => 'Cocada de Forno',
             'desc' => 'Cocada cremosa assada com coco fresco ralado, leite condensado e gemas caramelizadas.',
             'preco' => 14.50,
-            'img' => '../assets/img/img3.jpg',
+            'img' => '../assets/img/cocada.jpg',
             'destaque' => true,
         ],
         [
             'nome' => 'Quindim',
             'desc' => 'Doce clássico baiano de gema de ovo, coco ralado e calda de açúcar. Textura sedosa.',
             'preco' => 12.00,
-            'img' => '../assets/img/img1.jpg',
+            'img' => '../assets/img/quindim.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Manjar de Coco',
             'desc' => 'Manjar branco cremoso com calda de ameixa preta. Refrescante e delicado.',
             'preco' => 15.90,
-            'img' => '../assets/img/img2.jpg',
+            'img' => '../assets/img/manjar.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Pé de Moleque',
             'desc' => 'Doce rústico de amendoim torrado com rapadura e caldo de cana. Crocante e intenso.',
             'preco' => 9.00,
-            'img' => '../assets/img/img3.jpg',
+            'img' => '../assets/img/pe_de_moleque.jpg',
             'destaque' => false,
         ],
     ],
@@ -101,28 +94,28 @@ $cardapio = [
             'nome' => 'Suco de Acerola',
             'desc' => 'Acerola fresca batida na hora, rica em vitamina C. Servida gelada.',
             'preco' => 10.00,
-            'img' => '../assets/img/img1.jpg',
+            'img' => '../assets/img/suco_de_acerola.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Água de Coco',
             'desc' => 'Coco verde gelado, aberto na hora. Natural, refrescante e hidratante.',
             'preco' => 8.50,
-            'img' => '../assets/img/img2.jpg',
+            'img' => '../assets/img/agua_de_coco.jpg',
             'destaque' => true,
         ],
         [
             'nome' => 'Suco de Cajá',
             'desc' => 'Fruta típica do Nordeste batida com água e pouco açúcar. Sabor único e tropical.',
             'preco' => 11.00,
-            'img' => '../assets/img/img3.jpg',
+            'img' => '../assets/img/suco_de_caja.jpg',
             'destaque' => false,
         ],
         [
             'nome' => 'Licor de Jabuticaba',
             'desc' => 'Licor artesanal feito com jabuticabas colhidas localmente. Encorpado e aromático.',
             'preco' => 16.00,
-            'img' => '../assets/img/img1.jpg',
+            'img' => '../assets/img/licor_de_jabuticaba.jpg',
             'destaque' => false,
         ],
     ],
@@ -140,7 +133,7 @@ $secoes = [
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cardápio — Gostinho Natural</title>
+  <title>Cardápio - Gostinho Natural</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
   <link rel="stylesheet" href="../assets/css/home.css">
   <link rel="stylesheet" href="../assets/css/cardapio.css">
@@ -170,6 +163,7 @@ $secoes = [
           <?php endforeach; ?>
         </div>
       </div>
+      <div class="cardapio-hero-bg" style="background-image: url('../assets/img/bobo_camarao.jpg');"></div>
     </section>
 
     <?php foreach ($cardapio as $secId => $pratos):
@@ -187,9 +181,9 @@ $secoes = [
         <div class="cardapio-grid">
           <?php foreach ($pratos as $i => $prato): ?>
             <article class="prato-card reveal reveal-delay-<?= min(($i % 3) + 1, 3) ?>"
-                     data-nome="<?= strtolower(htmlspecialchars($prato['nome'])) ?>"
-                     data-desc="<?= strtolower(htmlspecialchars($prato['desc'])) ?>"
-                     data-secao="<?= $secId ?>">
+              data-nome="<?= strtolower(htmlspecialchars($prato['nome'])) ?>"
+              data-desc="<?= strtolower(htmlspecialchars($prato['desc'])) ?>"
+              data-secao="<?= $secId ?>">
               <div class="prato-card-img-wrap">
                 <img src="<?= htmlspecialchars($prato['img']) ?>" alt="<?= htmlspecialchars($prato['nome']) ?>" loading="lazy">
                 <?php if ($prato['destaque']): ?>

@@ -52,21 +52,21 @@ $footer_contato = $conteudo['footer_contato'];
         </div>
 
         <div class="hero-badge">
-          <img src="../assets/img/img1.jpg" alt="Prato do dia" class="hero-badge-img">
+          <img src="../assets/img/moqueca.jpg" alt="Prato do dia" class="hero-badge-img">
           <div class="hero-badge-content">
             <p class="hero-badge-label">Especialidades</p>
             <div class="hero-tags">
               <span class="hero-tag">Feijoada</span>
               <span class="hero-tag">Moqueca</span>
-              <span class="hero-tag">Mineiro</span>
-              <span class="hero-tag">Natural</span>
+              <span class="hero-tag">Frutos do Mar</span>
+              <span class="hero-tag">Acarajé</span>
             </div>
           </div>
         </div>
       </div>
 
       <div class="hero-right">
-        <img src="../assets/img/img2.jpg" alt="Prato Gostinho Natural">
+        <img src="../assets/img/bobo_camarao.jpg" alt="Prato Gostinho Natural">
       </div>
     </section>
 

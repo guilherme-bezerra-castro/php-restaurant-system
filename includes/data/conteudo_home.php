@@ -1,14 +1,14 @@
 <?php
 return [
   'carousel' => [
-    '../assets/img/img1.jpg',
-    '../assets/img/img2.jpg',
-    '../assets/img/img3.jpg',
+    '../assets/img/moqueca.jpg',
+    '../assets/img/bobo_camarao.jpg',
+    '../assets/img/acaraje.jpg',
   ],
   'pratos' => [
-    ['nome' => 'Feijoada',    'descricao' => 'Feijoada completa com carnes e feijão preto.', 'preco' => 35.50],
-    ['nome' => 'Moqueca',     'descricao' => 'Moqueca de peixe com dendê e leite de coco.',  'preco' => 42.00],
-    ['nome' => 'Pão de Queijo','descricao' => 'Tradicional pão de queijo mineiro.',           'preco' => 8.50],
+    ['nome' => 'Feijoada', 'descricao' => 'Feijoada completa com carnes e feijão preto.', 'preco' => 44.90],
+    ['nome' => 'Moqueca', 'descricao' => 'Moqueca de peixe com dendê e leite de coco.', 'preco' => 52.90],
+    ['nome' => 'Bobó de Camarão', 'descricao' => 'Bobó de camarão tradicional.', 'preco' => 58.00],
   ],
   'faq' => [
     ['pergunta' => 'Vocês entregam em domicílio?', 'resposta' => 'Sim, entregamos em toda a cidade.'],
