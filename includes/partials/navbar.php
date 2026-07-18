@@ -13,7 +13,7 @@
   <div class="nav-links">
     <a href="/includes/index.php" class="nav-link">Início</a>
     <a href="/includes/locais.php" class="nav-link">Locais</a>
-    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="/includes/cardapio.php" class="nav-link">Cardápio</a>
   </div>
 
   <div class="navbar-actions">
