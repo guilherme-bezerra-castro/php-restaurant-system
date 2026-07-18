@@ -16,9 +16,9 @@
       <i class="fas fa-map-marker-alt sidebar-icon"></i>
       <span>Nossas Filiais</span>
     </a>
-    <a href="#faq" class="sidebar-link">
-      <i class="fas fa-question-circle sidebar-icon"></i>
-      <span>FAQ</span>
+    <a href="/includes/cardapio.php" class="sidebar-link">
+      <i class="fas fa-map-marker-alt sidebar-icon"></i>
+      <span>Cardapio</span>
     </a>
     <a href="/includes/login.php" class="sidebar-link sidebar-link--highlight" id="sidebarLoginButton">
       <i class="fas fa-user sidebar-icon"></i>
