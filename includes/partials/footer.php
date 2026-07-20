@@ -15,6 +15,7 @@
           <li><a href="/includes/index.php">Início</a></li>
           <li><a href="/includes/cardapio.php">Cardápio</a></li>
           <li><a href="/includes/locais.php">Locais</a></li>
+          <li><a href="/includes/pedido.php">Fazer Pedido</a></li>
         </ul>
       </div>
       <div>

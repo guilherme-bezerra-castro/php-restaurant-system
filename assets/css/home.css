@@ -1066,6 +1066,13 @@ body.sidebar-open .sidebar-overlay {
   }
 }
 
+.navbar-pedido-btn { padding: 0.45rem 1rem; font-size: 0.8rem; gap: 6px; }
+.navbar-pedido-btn i { font-size: 0.75rem; }
+
+@media (max-width: 768px) {
+  .navbar-pedido-btn span { display: none; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { 
     transition: none !important; 

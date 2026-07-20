@@ -23,6 +23,9 @@
         <i class="fas fa-search"></i>
       </button>
     </form>
+    <a href="/includes/pedido.php" class="btn-primary navbar-pedido-btn">
+      <i class="fas fa-cart-shopping"></i> Pedir
+    </a>
     <button class="usuario-button" id="loginRedirectButton" aria-label="Login">
       <i class="fas fa-user"></i>
     </button>
