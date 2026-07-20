@@ -11,7 +11,7 @@ return [
     ['nome' => 'Bobó de Camarão', 'descricao' => 'Bobó de camarão tradicional.', 'preco' => 58.00],
   ],
   'faq' => [
-    ['pergunta' => 'Vocês entregam em domicílio?', 'resposta' => 'Sim, entregamos em toda a cidade.'],
+    ['pergunta' => 'Vocês entregam em domicílio?', 'resposta' => 'Sim, entregamos em todas as cidades que possuem filiais.'],
     ['pergunta' => 'Quais formas de pagamento aceitam?', 'resposta' => 'Cartão, Pix e dinheiro.'],
     ['pergunta' => 'Os pratos têm opção vegetariana?', 'resposta' => 'Sim! Temos um cardápio vegetariano completo com pratos que preservam todo o sabor da culinária natural, sem ingredientes de origem animal.'],
     ['pergunta' => 'Quais são os horários de funcionamento?', 'resposta' => 'Funcionamos de segunda a sábado das 11h às 22h, e aos domingos das 11h às 16h. Confira o horário específico de cada filial na página de Locais.'],
