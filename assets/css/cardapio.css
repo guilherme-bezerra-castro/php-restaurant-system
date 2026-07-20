@@ -334,6 +334,35 @@ mark {
   padding: 0 2px;
 }
 
+.cardapio-hero-cta { margin-top: 2rem; }
+
+.prato-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.prato-card-pedir {
+  flex-shrink: 0;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--laranja);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: background var(--transition), transform var(--transition);
+}
+
+.prato-card-pedir:hover {
+  background: var(--laranja-esc);
+  transform: scale(1.08);
+}
+
 @media (max-width: 768px) {
   .cardapio-hero { padding: 4rem 1.5rem 3rem; }
   .cardapio-section { padding: 3rem 1.5rem; }

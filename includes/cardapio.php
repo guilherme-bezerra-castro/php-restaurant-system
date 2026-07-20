@@ -7,125 +7,9 @@ $navLinks = [
     ['href' => '/includes/locais.php', 'label' => 'Locais', 'icon' => 'fa-map-marker-alt'],
 ];
 
-$cardapio = [
-    'salgados' => [
-        [
-            'nome' => 'Moqueca de Peixe',
-            'desc' => 'Peixe fresco cozido no leite de coco, azeite de dendê, pimentão e coentro. Acompanha arroz e pirão.',
-            'preco' => 52.90,
-            'img' => '../assets/img/moqueca.jpg',
-            'destaque' => true,
-        ],
-        [
-            'nome' => 'Feijoada Baiana',
-            'desc' => 'Feijão preto com carnes selecionadas, couve refogada, farofa e laranja. Tradição que aquece.',
-            'preco' => 44.90,
-            'img' => '../assets/img/feijoada.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Vatapá',
-            'desc' => 'Creme encorpado de pão, amendoim, camarão seco, leite de coco e azeite de dendê.',
-            'preco' => 38.50,
-            'img' => '../assets/img/vatapa.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Caruru',
-            'desc' => 'Quiabo refogado com camarão seco, amendoim, castanha de caju e azeite de dendê.',
-            'preco' => 36.00,
-            'img' => '../assets/img/caruru.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Acarajé',
-            'desc' => 'Bolinho de feijão-fradinho frito no dendê, recheado com vatapá, caruru e camarão.',
-            'preco' => 22.00,
-            'img' => '../assets/img/acaraje.jpg',
-            'destaque' => true,
-        ],
-        [
-            'nome' => 'Bobó de Camarão',
-            'desc' => 'Camarão fresco em creme de mandioca com leite de coco e azeite de dendê. Servido com arroz.',
-            'preco' => 58.00,
-            'img' => '../assets/img/bobo_camarao.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Galinha à Caipira',
-            'desc' => 'Frango caipira ensopado com temperos baianos, servido com pirão e arroz branco.',
-            'preco' => 46.00,
-            'img' => '../assets/img/galinha_caipira.jpg',
-            'destaque' => false,
-        ],
-    ],
-    'sobremesas' => [
-        [
-            'nome' => 'Cocada de Forno',
-            'desc' => 'Cocada cremosa assada com coco fresco ralado, leite condensado e gemas caramelizadas.',
-            'preco' => 14.50,
-            'img' => '../assets/img/cocada.jpg',
-            'destaque' => true,
-        ],
-        [
-            'nome' => 'Quindim',
-            'desc' => 'Doce clássico baiano de gema de ovo, coco ralado e calda de açúcar. Textura sedosa.',
-            'preco' => 12.00,
-            'img' => '../assets/img/quindim.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Manjar de Coco',
-            'desc' => 'Manjar branco cremoso com calda de ameixa preta. Refrescante e delicado.',
-            'preco' => 15.90,
-            'img' => '../assets/img/manjar.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Pé de Moleque',
-            'desc' => 'Doce rústico de amendoim torrado com rapadura e caldo de cana. Crocante e intenso.',
-            'preco' => 9.00,
-            'img' => '../assets/img/pe_de_moleque.jpg',
-            'destaque' => false,
-        ],
-    ],
-    'bebidas' => [
-        [
-            'nome' => 'Suco de Acerola',
-            'desc' => 'Acerola fresca batida na hora, rica em vitamina C. Servida gelada.',
-            'preco' => 10.00,
-            'img' => '../assets/img/suco_de_acerola.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Água de Coco',
-            'desc' => 'Coco verde gelado, aberto na hora. Natural, refrescante e hidratante.',
-            'preco' => 8.50,
-            'img' => '../assets/img/agua_de_coco.jpg',
-            'destaque' => true,
-        ],
-        [
-            'nome' => 'Suco de Cajá',
-            'desc' => 'Fruta típica do Nordeste batida com água e pouco açúcar. Sabor único e tropical.',
-            'preco' => 11.00,
-            'img' => '../assets/img/suco_de_caja.jpg',
-            'destaque' => false,
-        ],
-        [
-            'nome' => 'Licor de Jabuticaba',
-            'desc' => 'Licor artesanal feito com jabuticabas colhidas localmente. Encorpado e aromático.',
-            'preco' => 16.00,
-            'img' => '../assets/img/licor_de_jabuticaba.jpg',
-            'destaque' => false,
-        ],
-    ],
-];
-
-$secoes = [
-    'salgados'   => ['label' => 'Pratos Salgados', 'eyebrow' => 'Culinária Baiana', 'icon' => 'fa-bowl-food'],
-    'sobremesas' => ['label' => 'Sobremesas', 'eyebrow' => 'Doce Final', 'icon' => 'fa-cake-candles'],
-    'bebidas'    => ['label' => 'Bebidas', 'eyebrow' => 'Para Acompanhar', 'icon' => 'fa-glass-water'],
-];
+$dadosCardapio = require __DIR__ . '/data/conteudo_cardapio.php';
+$cardapio = $dadosCardapio['cardapio'];
+$secoes = $dadosCardapio['secoes'];
 ?>
 
 <!DOCTYPE html>
@@ -162,6 +46,10 @@ $secoes = [
             </a>
           <?php endforeach; ?>
         </div>
+        <a href="/includes/pedido.php" class="btn-primary cardapio-hero-cta">
+          Fazer pedido
+          <span class="btn-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
       </div>
       <div class="cardapio-hero-bg" style="background-image: url('../assets/img/bobo_camarao.jpg');"></div>
     </section>
@@ -191,11 +79,16 @@ $secoes = [
                 <?php endif; ?>
               </div>
               <div class="prato-card-accent"></div>
-              <div class="prato-card-body">
-                <h3 class="prato-card-nome"><?= htmlspecialchars($prato['nome']) ?></h3>
-                <p class="prato-card-desc"><?= htmlspecialchars($prato['desc']) ?></p>
-                <p class="prato-card-preco">R$ <?= number_format($prato['preco'], 2, ',', '.') ?></p>
-              </div>
+                <div class="prato-card-body">
+                  <h3 class="prato-card-nome"><?= htmlspecialchars($prato['nome']) ?></h3>
+                  <p class="prato-card-desc"><?= htmlspecialchars($prato['desc']) ?></p>
+                  <div class="prato-card-footer">
+                    <p class="prato-card-preco">R$ <?= number_format($prato['preco'], 2, ',', '.') ?></p>
+                    <a href="/includes/pedido.php?add=<?= urlencode($prato['id']) ?>" class="prato-card-pedir" title="Adicionar ao pedido">
+                      <i class="fas fa-cart-plus"></i>
+                    </a>
+                  </div>
+                </div>
             </article>
           <?php endforeach; ?>
         </div>
