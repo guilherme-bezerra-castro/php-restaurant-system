@@ -1,20 +1,22 @@
 # Sistema de Restaurante
 
-> Sistema web fullstack para gerenciamento de conteúdo de um restaurante, com autenticação de usuários e painel administrativo para edição dinâmica de informações.
+> Sistema web fullstack para gerenciamento de conteúdo de um restaurante, com autenticação de usuários e painel administrativo para edição dinâmica das informações do site.
 
-O Sistema de Restaurante é um projeto pessoal desenvolvido com PHP, MySQL, HTML, CSS e JavaScript. Ele simula um sistema completo de site institucional com área pública (cliente) e área administrativa protegida por autenticação.
+O **Sistema de Restaurante** é um projeto desenvolvido com **PHP, MySQL, HTML, CSS e JavaScript**, simulando um sistema completo de site institucional com área pública para clientes e uma área administrativa protegida por autenticação.
 
-O objetivo do projeto foi praticar desenvolvimento fullstack, autenticação de usuários com hash de senha, manipulação de banco de dados e estruturação de páginas dinâmicas.
+O projeto teve como objetivo praticar o desenvolvimento de aplicações fullstack, incluindo autenticação de usuários, integração com banco de dados, gerenciamento dinâmico de conteúdo e organização da aplicação em múltiplas páginas.
+
+> **Status:** projeto local, sem deploy.
 
 ---
 
 ## Tecnologias
 
-* PHP
-* MySQL
-* HTML5
-* CSS3
-* JavaScript (vanilla)
+- PHP
+- MySQL
+- HTML5
+- CSS3
+- JavaScript (Vanilla)
 
 ---
 
@@ -22,43 +24,44 @@ O objetivo do projeto foi praticar desenvolvimento fullstack, autenticação de 
 
 ### Área pública
 
-* Página inicial com cardápio e carrossel de imagens
-* Seção de FAQ
-* Seção de pratos (cards de refeições)
-* Página de locais com cards das unidades do restaurante
-* Footer com informações de contato
+- Página inicial com cardápio e carrossel de imagens
+- Seção de FAQ
+- Exibição de pratos em formato de cards
+- Página com as unidades do restaurante
+- Informações de contato no rodapé
 
 ### Autenticação
 
-* Sistema de login de administrador
-* Senhas armazenadas com hash no banco de dados (MySQL)
+- Login para administradores
+- Armazenamento seguro de senhas utilizando hash
 
 ### Área administrativa
 
-* Painel administrativo protegido por login
-* Edição de conteúdos exibidos na página inicial (cards e seções)
-* Atualização dinâmica de informações do site via banco de dados
+- Painel administrativo protegido por autenticação
+- Gerenciamento dos conteúdos exibidos na página inicial
+- Atualização dinâmica das informações do site através do banco de dados
 
 ---
 
 ## Banco de Dados
 
-* MySQL
-* Estrutura baseada em usuários e conteúdos do site
-* Senhas armazenadas utilizando hash de segurança
-* Script SQL disponível no repositório para criação do ambiente local
+- MySQL
+- Estrutura organizada para gerenciamento de usuários e conteúdos
+- Senhas armazenadas utilizando hash de segurança
+- Script SQL disponível para criação do ambiente local
 
 ---
 
 ## Conceitos aplicados
 
-* Desenvolvimento fullstack
-* Autenticação de usuários
-* Hash de senha para segurança
-* CRUD de conteúdos dinâmicos
-* Integração entre front-end e back-end
-* Manipulação de DOM via JavaScript
-* Estruturação de sistema web com múltiplas páginas
+- Desenvolvimento Fullstack
+- Autenticação de usuários
+- Hash de senhas
+- CRUD de conteúdos
+- Integração entre front-end e back-end
+- Manipulação de DOM com JavaScript
+- Persistência de dados com MySQL
+- Estruturação de aplicações web com múltiplas páginas
 
 ---
 
@@ -66,60 +69,49 @@ O objetivo do projeto foi praticar desenvolvimento fullstack, autenticação de 
 
 ### Pré-requisitos
 
-* Servidor local (XAMPP, WAMP ou similar)
-* PHP instalado
-* MySQL
+- PHP instalado
+- MySQL
+- Servidor local (XAMPP, WAMP ou similar)
 
-### Passos
+### Instalação
 
-1. Clonar o repositório:
+1. Clone o repositório:
 
 ```bash
-git clone <URL_DO_REPOSITORIO>
+git clone https://github.com/guilherme-bezerra-castro/php-restaurant-system.git
 ```
 
-2. Importar o banco de dados MySQL usando o script disponível no projeto
+2. Importe o banco de dados utilizando o script SQL disponível no projeto.
 
-3. Configurar a conexão com o banco no arquivo de configuração PHP
+3. Configure a conexão com o banco de dados no arquivo de configuração da aplicação.
 
-4. Executar o projeto em servidor local (localhost)
+4. Inicie o servidor PHP:
 
-5. Acessar:
-
-* Dentro do diretório do projeto clonado no terminal:
-```
+```bash
 php -S localhost:8000
 ```
 
-* Clique no link localhost do servidor usando CTRL + click e, na URL do sistema:
+5. Acesse a aplicação pelo navegador:
+
 ```
-http://localhost{porta}/includes
+http://localhost:8000/includes
 ```
 
 ---
 
 ## Contexto do projeto
 
-Este projeto foi desenvolvido como trabalho avaliativo da disciplina de Desenvolvimento Fullstack no curso de Análise e Desenvolvimento de Sistemas (IFSP).
+Este projeto foi desenvolvido como trabalho da disciplina de Desenvolvimento Fullstack do curso de **Análise e Desenvolvimento de Sistemas (IFSP)**.
 
-Posteriormente, o sistema passou por refatoração com foco em boas práticas de desenvolvimento, incluindo princípios de Clean Code, visando melhoria de legibilidade, organização e manutenção do código.
+Posteriormente, o sistema passou por uma refatoração com foco na organização do código e na aplicação de boas práticas de desenvolvimento, visando melhorar sua legibilidade e manutenção.
+
+---
 
 ## Evolução do projeto
 
-O sistema foi inicialmente desenvolvido com foco acadêmico e posteriormente revisado para aplicação de melhores práticas de desenvolvimento.
+Após sua implementação inicial, o projeto recebeu melhorias estruturais, incluindo:
 
-As melhorias realizadas incluíram:
-- Organização de código
+- Organização da estrutura do código
 - Separação de responsabilidades
-- Refatoração de funções e estrutura geral
-
-Futuras melhorias incluirão:
-- Melhoria do design front-end da aplicação
-- Consumo de APIs externas em novas features para as páginas de clientes
-
-## Observações do projeto
-
-* Projeto desenvolvido como primeiro sistema fullstack
-* Front-end ainda em processo de evolução e refatoração
-* Algumas funcionalidades de UI (como busca na navbar) ainda não estão implementadas
-* Estrutura passou por melhorias seguindo princípios básicos de Clean Code
+- Refatoração de funções
+- Melhorias na legibilidade e manutenção da aplicação
