@@ -19,6 +19,7 @@
   --navbar-h: 64px;
   --radius: 12px;
   --transition: 0.3s ease;
+  --hero-banner-h: 620px;
 }
 
 html { 
@@ -1012,6 +1013,10 @@ body.sidebar-open .sidebar-overlay {
     display: none; 
   }
 
+  .navbar-actions {
+    margin-left: auto;
+  }
+
   .search-input { 
     width: 100px; 
   }
@@ -1071,6 +1076,12 @@ body.sidebar-open .sidebar-overlay {
 
 @media (max-width: 768px) {
   .navbar-pedido-btn span { display: none; }
+}
+
+@media (max-width: 560px) {
+  .navbar { padding: 0 1rem; gap: 0.5rem; }
+  .navbar-brand-name { display: none; }
+  .search-form { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -43,14 +43,17 @@ $footer_contato = $conteudo['footer_contato'];
     </div>
 
     <div class="navbar-actions">
-      <form class="search-form" role="search">
-        <input type="search" class="search-input" placeholder="Pesquisar..." aria-label="Pesquisar">
-        <button type="submit" class="search-button" aria-label="Buscar">
-          <i class="fas fa-search"></i>
-        </button>
-      </form>
+      <div class="search-wrapper">
+        <form class="search-form" id="searchForm" role="search" action="/includes/cardapio.php" method="get">
+          <input type="search" name="busca" class="search-input" id="searchInput" placeholder="Pesquisar..." aria-label="Pesquisar">
+          <button type="submit" class="search-button" aria-label="Buscar">
+            <i class="fas fa-search"></i>
+          </button>
+        </form>
+        <div class="search-dropdown" id="searchDropdown" role="listbox"></div>
+      </div>
       <a href="/includes/pedido.php" class="btn-primary navbar-pedido-btn">
-        <i class="fas fa-cart-shopping"></i> Pedir
+        <i class="fas fa-cart-shopping"></i> <span>Pedir</span>
       </a>
       <button class="usuario-button" id="loginRedirectButton" aria-label="Login">
         <i class="fas fa-user"></i>
