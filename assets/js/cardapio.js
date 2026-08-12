@@ -168,6 +168,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
   limparBtn?.addEventListener('click', limparFiltro);
 
+  if (searchInput && searchInput.value.trim()) {
+    aplicarFiltro(searchInput.value.trim().toLowerCase());
+  }
+
   // Fechar dropdown ao clicar fora
   document.addEventListener('click', e => {
     if (!e.target.closest('.search-wrapper')) fecharDropdown();
