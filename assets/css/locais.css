@@ -2,6 +2,9 @@
   position: relative;
   background: var(--fundo-escuro);
   padding: 6rem 4rem 5rem;
+  min-height: var(--hero-banner-h);
+  display: flex;
+  align-items: center;
   overflow: hidden;
   border-bottom: 2px solid var(--laranja);
 }
@@ -169,7 +172,13 @@
 .local-card-btn:hover { gap: 12px; }
 
 @media (max-width: 768px) {
-  .locais-hero { padding: 4rem 1.5rem 3rem; }
-  .locais-section { padding: 3rem 1.5rem; }
-  .locais-grid { grid-template-columns: 1fr; }
+  .locais-hero { padding: 4rem 1.5rem 3rem; 
+    min-height: auto; 
+  }
+  .locais-section { 
+    padding: 3rem 1.5rem; 
+  }
+  .locais-grid { 
+    grid-template-columns: 1fr; 
+  }
 }
