@@ -19,7 +19,7 @@
   <div class="navbar-actions">
     <div class="search-wrapper">
       <form class="search-form" id="searchForm" role="search" action="/includes/cardapio.php" method="get">
-        <input type="search" name="busca" class="search-input" id="searchInput" placeholder="Pesquisar..." aria-label="Pesquisar" value="<?= htmlspecialchars($_GET['busca'] ?? '') ?>">
+        <input type="search" name="busca" class="search-input" id="searchInput" placeholder="Pesquisar..." aria-label="Pesquisar" value="<?= htmlspecialchars(mb_substr($_GET['busca'] ?? '', 0, 100)) ?>">
         <button type="submit" class="search-button" aria-label="Buscar">
           <i class="fas fa-search"></i>
         </button>

@@ -25,101 +25,101 @@ $erro = '';
 $pedidoConfirmado = null;
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
-      $erro = "Sessão expirada. Recarregue a página e tente novamente.";
-    } else {
-      $itensBrutos = json_decode($_POST['itens_json'] ?? '[]', true);
-      $nome = trim($_POST['nome'] ?? '');
-      $telefone = trim($_POST['telefone'] ?? '');
-      $cep = trim($_POST['cep'] ?? '');
-      $endereco = trim($_POST['endereco'] ?? '');
-      $numero = trim($_POST['numero'] ?? '');
-      $complemento = trim($_POST['complemento'] ?? '');
-      $bairro = trim($_POST['bairro'] ?? '');
-      $cidade = trim($_POST['cidade'] ?? '');
-      $formaPagamento = $_POST['forma_pagamento'] ?? '';
-      $observacoes = trim($_POST['observacoes'] ?? '');
+  if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
+    $erro = "Sessão expirada. Recarregue a página e tente novamente.";
+  } else {
+    $itensBrutos = json_decode($_POST['itens_json'] ?? '[]', true);
+    $nome = trim($_POST['nome'] ?? '');
+    $telefone = trim($_POST['telefone'] ?? '');
+    $cep = trim($_POST['cep'] ?? '');
+    $endereco = trim($_POST['endereco'] ?? '');
+    $numero = trim($_POST['numero'] ?? '');
+    $complemento = trim($_POST['complemento'] ?? '');
+    $bairro = trim($_POST['bairro'] ?? '');
+    $cidade = trim($_POST['cidade'] ?? '');
+    $formaPagamento = $_POST['forma_pagamento'] ?? '';
+    $observacoes = trim($_POST['observacoes'] ?? '');
 
-        $itensValidos = [];
-        if (is_array($itensBrutos)) {
-          foreach ($itensBrutos as $item) {
-            $id = $item['id'] ?? '';
-            $qtd = (int) ($item['quantidade'] ?? 0);
-            if (isset($pratosPorId[$id]) && $qtd > 0 && $qtd <= 20) {
-              $itensValidos[] = [
-                'id' => $id,
-                'nome' => $pratosPorId[$id]['nome'],
-                'preco' => (float) $pratosPorId[$id]['preco'],
-                'quantidade' => $qtd,
-              ];
-            }
-          }
+    $itensValidos = [];
+    if (is_array($itensBrutos)) {
+      foreach ($itensBrutos as $item) {
+        $id = $item['id'] ?? '';
+        $qtd = (int) ($item['quantidade'] ?? 0);
+        if (isset($pratosPorId[$id]) && $qtd > 0 && $qtd <= 20) {
+          $itensValidos[] = [
+            'id' => $id,
+            'nome' => $pratosPorId[$id]['nome'],
+            'preco' => (float) $pratosPorId[$id]['preco'],
+            'quantidade' => $qtd,
+          ];
         }
-
-        $formasPagamentoValidas = ['pix', 'dinheiro', 'cartao'];
-
-        if (empty($itensValidos)) {
-          $erro = "Seu carrinho está vazio. Adicione ao menos um item ao pedido.";
-        } elseif ($nome === '' || mb_strlen($nome) < 3) {
-          $erro = "Informe seu nome completo.";
-        } elseif (!preg_match('/^[\d\s()+-]{8,20}$/', $telefone)) {
-          $erro = "Informe um telefone válido para contato.";
-        } elseif ($endereco === '' || $numero === '' || $bairro === '') {
-          $erro = "Preencha endereço, número e bairro para a entrega.";
-        } elseif (!in_array($cidade, CIDADES_ATENDIDAS, true)) {
-          $erro = "No momento só entregamos em " . implode(', ', CIDADES_ATENDIDAS) . ".";
-        } elseif (!in_array($formaPagamento, $formasPagamentoValidas, true)) {
-          $erro = "Selecione uma forma de pagamento.";
-        } else {
-          $total = 0.0;
-          foreach ($itensValidos as $item) {
-            $total += $item['preco'] * $item['quantidade'];
-          }
-
-          $conn = criarConexaoBanco();
-          $conn->begin_transaction();
-
-          try {
-            $stmt = $conn->prepare(
-              "INSERT INTO pedidos(nome_cliente, telefone, cep, endereco, numero, complemento, bairro, cidade, forma_pagamento, observacoes, total)
-                VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
-            );
-
-            $stmt->bind_param("ssssssssssd", $nome, $telefone, $cep, $endereco, $numero, $complemento, $bairro, $cidade, $formaPagamento, $observacoes, $total);
-            $stmt->execute();
-            $pedidoId = $stmt->insert_id;
-            $stmt->close();
-
-            $stmtItem = $conn->prepare(
-              "INSERT INTO pedido_itens (pedido_id, prato_codigo, nome_prato, quantidade, preco_unitario)
-              VALUES (?, ?, ?, ?, ?)"
-            );
-            foreach ($itensValidos as $item) {
-                $stmtItem->bind_param(
-                  "issid",
-                  $pedidoId, $item['id'], $item['nome'], $item['quantidade'], $item['preco']
-                );
-                $stmtItem->execute();
-            }
-            $stmtItem->close();
-
-            $conn->commit();
-            $conn->close();
-
-            $pedidoConfirmado = [
-              'id' => $pedidoId,
-              'total' => $total,
-              'itens' => $itensValidos,
-              'cidade' => $cidade,
-            ];
-          } catch (mysqli_sql_exception $e) {
-            $conn->rollback();
-            $conn->close();
-            error_log("Erro ao registrar pedido: " . $e->getMessage());
-            $erro = "Não foi possível registrar seu pedido agora. Tente novamente em instantes.";
-          }
-        }
+      }
     }
+
+    $formasPagamentoValidas = ['pix', 'dinheiro', 'cartao'];
+
+    if (empty($itensValidos)) {
+      $erro = "Seu carrinho está vazio. Adicione ao menos um item ao pedido.";
+    } elseif ($nome === '' || mb_strlen($nome) < 3) {
+      $erro = "Informe seu nome completo.";
+    } elseif (!preg_match('/^[\d\s()+-]{8,20}$/', $telefone)) {
+      $erro = "Informe um telefone válido para contato.";
+    } elseif ($endereco === '' || $numero === '' || $bairro === '') {
+      $erro = "Preencha endereço, número e bairro para a entrega.";
+    } elseif (!in_array($cidade, CIDADES_ATENDIDAS, true)) {
+      $erro = "No momento só entregamos em " . implode(', ', CIDADES_ATENDIDAS) . ".";
+    } elseif (!in_array($formaPagamento, $formasPagamentoValidas, true)) {
+      $erro = "Selecione uma forma de pagamento.";
+    } else {
+      $total = 0.0;
+      foreach ($itensValidos as $item) {
+        $total += $item['preco'] * $item['quantidade'];
+      }
+
+      $conn = criarConexaoBanco();
+      $conn->begin_transaction();
+
+      try {
+        $stmt = $conn->prepare(
+          "INSERT INTO pedidos(nome_cliente, telefone, cep, endereco, numero, complemento, bairro, cidade, forma_pagamento, observacoes, total)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        );
+
+        $stmt->bind_param("ssssssssssd", $nome, $telefone, $cep, $endereco, $numero, $complemento, $bairro, $cidade, $formaPagamento, $observacoes, $total);
+        $stmt->execute();
+        $pedidoId = $stmt->insert_id;
+        $stmt->close();
+
+        $stmtItem = $conn->prepare(
+          "INSERT INTO pedido_itens (pedido_id, prato_codigo, nome_prato, quantidade, preco_unitario) 
+          VALUES (?, ?, ?, ?, ?)"
+        );
+        foreach ($itensValidos as $item) {
+          $stmtItem->bind_param(
+            "issid",
+            $pedidoId, $item['id'], $item['nome'], $item['quantidade'], $item['preco']
+          );
+          $stmtItem->execute();
+        }
+        $stmtItem->close();
+
+        $conn->commit();
+        $conn->close();
+
+        $pedidoConfirmado = [
+          'id' => $pedidoId,
+          'total' => $total,
+          'itens' => $itensValidos,
+          'cidade' => $cidade,
+        ];
+      } catch (mysqli_sql_exception $e) {
+        $conn->rollback();
+        $conn->close();
+        error_log("Erro ao registrar pedido: " . $e->getMessage());
+        $erro = "Não foi possível registrar seu pedido agora. Tente novamente em instantes.";
+      }
+    }
+  }
 }
 ?>
 <!DOCTYPE html>

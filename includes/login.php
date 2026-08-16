@@ -2,7 +2,7 @@
 session_start();
 
 if (empty($_SESSION['csrf_token'])) {
-    $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+  $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
 }
 
 require_once __DIR__ . '/db.php';
@@ -12,56 +12,62 @@ $erro = '';
 $usuarioPreenchido = '';
 
 if (empty($_SESSION['login_tentativas'])) {
-    $_SESSION['login_tentativas'] = 0;
+  $_SESSION['login_tentativas'] = 0;
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
-        $erro = "Sessão expirada. Recarregue a página e tente novamente.";
-    } elseif ($_SESSION['login_tentativas'] >= 8) {
-        $erro = "Muitas tentativas. Aguarde alguns minutos antes de tentar novamente.";
+  if (!hash_equals($_SESSION['csrf_token'] ?? '', $_POST['csrf_token'] ?? '')) {
+    $erro = "Sessão expirada. Recarregue a página e tente novamente.";
+  } elseif ($_SESSION['login_tentativas'] >= 8) {
+    $erro = "Muitas tentativas. Aguarde alguns minutos antes de tentar novamente.";
+  } else {
+    $nome_usuario = trim($_POST['nome_usuario'] ?? '');
+    $senha = $_POST['senha'] ?? '';
+    $usuarioPreenchido = $nome_usuario;
+
+    if ($nome_usuario === '' || $senha === '') {
+      $erro = "Preencha usuário e senha.";
+    } elseif (!validarTexto($nome_usuario, 3, 50) || !preg_match('/^[a-zA-Z0-9._-]+$/', $nome_usuario)) {
+      $erro = "Usuário inválido.";
+    } elseif (mb_strlen($senha) > 100) {
+      $erro = "Senha inválida.";
     } else {
-        $nome_usuario = trim($_POST['nome_usuario'] ?? '');
-        $senha = $_POST['senha'] ?? '';
-        $usuarioPreenchido = $nome_usuario;
+      try {
+        $conn = criarConexaoBanco();
 
-        if ($nome_usuario === '' || $senha === '') {
-            $erro = "Preencha usuário e senha.";
-        } else {
-            try {
-                $conn = criarConexaoBanco();
+        $stmt = $conn->prepare(
+            "SELECT id_usuario, nivel_acesso, senha
+            FROM usuario
+            WHERE nome_usuario = ?"
+        );
 
-                $stmt = $conn->prepare(
-                    "SELECT id_usuario, nivel_acesso, senha
-                    FROM usuario
-                    WHERE nome_usuario = ?"
-                );
-                $stmt->bind_param("s", $nome_usuario);
-                $stmt->execute();
-                $result = $stmt->get_result();
-                $usuario = $result->fetch_assoc();
-                $stmt->close();
-                $conn->close();
+        $stmt->bind_param("s", $nome_usuario);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $usuario = $result->fetch_assoc();
+        $stmt->close();
+        $conn->close();
 
-                if ($usuario && password_verify($senha, $usuario['senha'])) {
-                    session_regenerate_id(true);
+        if ($usuario && password_verify($senha, $usuario['senha'])) {
+          session_regenerate_id(true);
 
-                    $_SESSION['id_usuario'] = $usuario['id_usuario'];
-                    $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
-                    $_SESSION['login_tentativas'] = 0;
+          $_SESSION['id_usuario'] = $usuario['id_usuario'];
+          $_SESSION['nivel_acesso'] = $usuario['nivel_acesso'];
+          $_SESSION['login_tentativas'] = 0;
 
-                    header("Location: adm.php");
-                    exit;
-                }
-
-                $_SESSION['login_tentativas']++;
-                $erro = "Usuário ou senha incorretos.";
-            } catch (mysqli_sql_exception $e) {
-                error_log('Erro ao autenticar: ' . $e->getMessage());
-                $erro = "Não foi possível autenticar agora. Tente novamente em instantes.";
-            }
+          header("Location: adm.php");
+          exit;
         }
+
+        $_SESSION['login_tentativas']++;
+        $erro = "Usuário ou senha incorretos.";
+      
+      } catch (mysqli_sql_exception $e) {
+        error_log('Erro ao autenticar: ' . $e->getMessage());
+        $erro = "Não foi possível autenticar agora. Tente novamente em instantes.";
+      }
     }
+  }
 }
 ?>
 
