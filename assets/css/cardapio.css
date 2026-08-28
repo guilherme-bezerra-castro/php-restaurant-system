@@ -146,6 +146,12 @@
   flex-shrink: 0;
 }
 
+.prato-card-img-wrap picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .prato-card-img-wrap img {
   width: 100%;
   height: 100%;

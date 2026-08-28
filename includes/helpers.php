@@ -16,4 +16,13 @@ function validarTelefone(string $valor): bool {
 function validarCep(string $valor): bool {
     return (bool) preg_match('/^\d{5}-?\d{3}$/', $valor);
 }
+
+function renderImagem(string $caminho, string $alt, string $classe = '', string $loading = 'lazy'): string {
+    $webp = preg_replace('/\.(jpg|jpeg|png)$/i', '.webp', $caminho);
+    $classeAttr = $classe !== '' ? ' class="' . sanitize($classe) . '"' : '';
+    return '<picture>'
+        . '<source srcset="' . sanitize($webp) . '" type="image/webp">'
+        . '<img src="' . sanitize($caminho) . '" alt="' . sanitize($alt) . '"' . $classeAttr . ' loading="' . sanitize($loading) . '">'
+        . '</picture>';
+}
 ?>

@@ -42,7 +42,7 @@ $footer_contato = $conteudo['footer_contato'];
         <?php foreach ($locais as $i => $local): ?>
           <div class="local-card reveal reveal-delay-<?= min($i + 1, 3) ?>">
             <div class="local-card-img-wrap">
-              <img src="<?= sanitize($local['imagem']) ?>" alt="<?= sanitize($local['nome']) ?>">
+              <?= renderImagem($local['imagem'], $local['nome']) ?>
               <div class="local-card-img-overlay"></div>
               <span class="local-card-number"><?= str_pad($i + 1, 2, '0', STR_PAD_LEFT) ?></span>
             </div>

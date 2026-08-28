@@ -211,7 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
               <div class="pedido-grid">
                 <?php foreach ($pratos as $prato): ?>
                   <article class="pedido-item-card" data-id="<?= sanitize($prato['id']) ?>" data-nome="<?= sanitize($prato['nome']) ?>" data-preco="<?= $prato['preco'] ?>">
-                    <img src="<?= sanitize($prato['img']) ?>" alt="<?= sanitize($prato['nome']) ?>" class="pedido-item-img" loading="lazy">
+                    <?= renderImagem($prato['img'], $prato['nome'], 'pedido-item-img') ?>
                     <div class="pedido-item-body">
                       <h3 class="pedido-item-nome"><?= sanitize($prato['nome']) ?></h3>
                       <p class="pedido-item-preco">R$ <?= number_format($prato['preco'], 2, ',', '.') ?></p>

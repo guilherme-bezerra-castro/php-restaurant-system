@@ -512,6 +512,12 @@ body.sidebar-open .sidebar-overlay {
   overflow: hidden;
 }
 
+.hero-right picture {
+  position: absolute;
+  inset: 0;
+  display: block;
+}
+
 .hero-right img {
   width: 100%;
   height: 100%;
@@ -566,6 +572,12 @@ body.sidebar-open .sidebar-overlay {
   min-width: 100%;
   height: 100%;
   position: relative;
+}
+
+.carousel-item picture {
+  position: absolute;
+  inset: 0;
+  display: block;
 }
 
 .carousel-item img {

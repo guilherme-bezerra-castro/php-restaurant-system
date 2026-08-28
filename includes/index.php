@@ -91,7 +91,7 @@ $footer_contato = $conteudo['footer_contato'];
         </div>
 
         <div class="hero-badge">
-          <img src="../assets/img/moqueca.jpg" alt="Prato do dia" class="hero-badge-img">
+          <?= renderImagem('../assets/img/moqueca.jpg', 'Prato do dia', 'hero-badge-img', 'eager') ?>
           <div class="hero-badge-content">
             <p class="hero-badge-label">Especialidades</p>
             <div class="hero-tags">
@@ -105,7 +105,7 @@ $footer_contato = $conteudo['footer_contato'];
       </div>
 
       <div class="hero-right">
-        <img src="../assets/img/bobo_camarao.jpg" alt="Prato Gostinho Natural">
+        <?= renderImagem('../assets/img/bobo_camarao.jpg', 'Prato Gostinho Natural', '', 'eager') ?>
       </div>
     </section>
 
@@ -123,7 +123,7 @@ $footer_contato = $conteudo['footer_contato'];
             $l = $legendas[$i] ?? $legendas[0];
           ?>
             <div class="carousel-item">
-              <img src="<?= sanitize($img) ?>" alt="Slide <?= $i + 1 ?>">
+              <?= renderImagem($img, 'Slide ' . ($i + 1)) ?>
               <div class="carousel-caption">
                 <h3><?= sanitize($l['titulo']) ?></h3>
                 <p><?= sanitize($l['sub']) ?></p>

@@ -73,7 +73,7 @@ $secoes = $dadosCardapio['secoes'];
               data-desc="<?= strtolower(htmlspecialchars($prato['desc'])) ?>"
               data-secao="<?= $secId ?>">
               <div class="prato-card-img-wrap">
-                <img src="<?= htmlspecialchars($prato['img']) ?>" alt="<?= htmlspecialchars($prato['nome']) ?>" loading="lazy">
+                <?= renderImagem($prato['img'], $prato['nome']) ?>
                 <?php if ($prato['destaque']): ?>
                   <span class="prato-badge">Destaque</span>
                 <?php endif; ?>
