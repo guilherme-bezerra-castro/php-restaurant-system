@@ -1,4 +1,6 @@
 <?php
+ini_set('memory_limit', '512M');
+
 $diretorio = __DIR__ . '/assets/img';
 $larguraMaxima = 1600;
 $qualidadeJpg = 78;
