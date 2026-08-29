@@ -1,4 +1,5 @@
 <?php
+require_once __DIR__ . '/bootstrap.php';
 require_once __DIR__ . '/helpers.php';
 
 $conteudo       = require __DIR__ . '/data/conteudo_home.php';
